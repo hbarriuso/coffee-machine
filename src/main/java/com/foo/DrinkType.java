@@ -1,7 +1,7 @@
 package com.foo;
 
 public enum DrinkType {
-    TEA('T');
+    TEA('T'), COFFEE('C');
 
     public final char id;
 

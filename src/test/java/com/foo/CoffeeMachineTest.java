@@ -16,13 +16,19 @@ public class CoffeeMachineTest {
 
     @Test
     public void make_a_tea() {
-        final String expectedStart = "T";
-        final Drink tea = new Tea();
+        order_drink_makes_drink_maker_receive_a_string_that_starts_with(new Tea(), "T");
+    }
 
+    @Test
+    public void make_a_coffee() {
+        order_drink_makes_drink_maker_receive_a_string_that_starts_with(new Coffee(), "C");
+    }
+
+    private void order_drink_makes_drink_maker_receive_a_string_that_starts_with(Drink drink, final String expectedStart) {
         context.checking(new Expectations() {{
             oneOf(drinkMaker).receive(with(startsWith(expectedStart)));
         }});
 
-        machine.order(tea);
+        machine.order(drink);
     }
 }
